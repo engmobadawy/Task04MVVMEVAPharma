@@ -1,24 +1,21 @@
 import Foundation
 import SwiftUI
 
-// MARK: - FeedViewModel
-// MVVM Architecture: This ViewModel handles the business logic for the feed
-// Replaces direct SampleData usage in views with proper separation of concerns
+
 class FeedViewModel: ObservableObject {
     @Published var posts: [Post] = []
     @Published var stories: [Story] = []
     @Published var isLoading: Bool = false
     
-    // MARK: - Initialization
+    
     init() {
         loadInitialData()
     }
     
-    // MARK: - Data Loading
     private func loadInitialData() {
         isLoading = true
         
-        // Simulate network delay for better UX
+        
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             self.posts = self.createSamplePosts()
             self.stories = self.createSampleStories()
@@ -26,7 +23,10 @@ class FeedViewModel: ObservableObject {
         }
     }
     
-    // MARK: - Business Logic Methods
+    
+    
+    
+    //Business Logic Methods
     func toggleLike(for postId: UUID) {
         if let index = posts.firstIndex(where: { $0.id == postId }) {
             posts[index].likes += 1
@@ -43,7 +43,9 @@ class FeedViewModel: ObservableObject {
         loadInitialData()
     }
     
-    // MARK: - Sample Data Creation (Previously in SampleData.swift)
+    
+    
+    
     private func createSamplePosts() -> [Post] {
         return [
             Post(

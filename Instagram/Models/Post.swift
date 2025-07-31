@@ -1,7 +1,7 @@
 import Foundation
 
 struct Post: Identifiable {
-    let id = UUID() // creat unique id
+    let id = UUID() 
     let username: String
     let userProfileImage: String
     let postImage: String

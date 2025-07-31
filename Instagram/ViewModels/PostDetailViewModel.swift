@@ -1,9 +1,7 @@
 import Foundation
 import SwiftUI
 
-// MARK: - PostDetailViewModel
-// MVVM Architecture: This ViewModel handles the business logic for post detail interactions
-// Manages comment posting, like toggling, and other post-specific operations
+
 class PostDetailViewModel: ObservableObject {
     @Published var post: Post
     @Published var newComment: String = "" {
@@ -16,12 +14,12 @@ class PostDetailViewModel: ObservableObject {
     // Closure-based binding: Called whenever newComment changes
     var onCommentChanged: ((String) -> Void)?
     
-    // MARK: - Initialization
+
     init(post: Post) {
         self.post = post
     }
     
-    // MARK: - Business Logic Methods
+    
     func toggleLike() {
         post.likes += 1
     }
@@ -53,7 +51,8 @@ class PostDetailViewModel: ObservableObject {
         newComment = ""
     }
     
-    // MARK: - Computed Properties
+    
+    
     var commentCount: Int {
         return post.comments.count
     }
